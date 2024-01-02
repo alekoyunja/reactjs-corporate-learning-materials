@@ -1,5 +1,13 @@
 # React JS Manuel Olarak Kurulumu ve Webpack
 
+## JSX Yapısı
+
+JSX, JavaScript ve XML'in birleşiminden oluşan bir yapıdır. JSX, React tarafından kullanılan bir yapıdır. JSX, JavaScript'in gücünü ve XML'in kolaylığını bir araya getirir. JSX, React tarafından oluşturulan kodların daha kolay okunmasını ve yazılmasını sağlar.
+
+```js
+const element = <h1>Hello, world!</h1>;
+```
+
 ## Node JS Nedir?
 
 Node JS, Google Chrome'un V8 JavaScript motoru üzerine inşa edilmiş, açık kaynaklı, çok platformlu bir çalışma zamanı ortamıdır. Node JS, JavaScript'i sunucu tarafında çalıştırmak için kullanılır.
