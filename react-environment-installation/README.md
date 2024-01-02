@@ -1,4 +1,4 @@
-# react-101
+# React JS Environment Setup ve Gerekli Programların Kurulması
 
 ## Kurulum
 
