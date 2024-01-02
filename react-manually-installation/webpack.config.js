@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+// .env dosyasını okumak için
+require('dotenv').config({ path: './.env' });
+
 module.exports = {
   entry: "./src/index.jsx",
   output: {
@@ -13,7 +16,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    port: 3030,
+    port: process.env.PORT || 3000,
   },
   module: {
     rules: [
