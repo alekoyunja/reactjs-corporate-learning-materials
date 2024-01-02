@@ -76,6 +76,7 @@ package.json dosyası, Node.js projesinin kök dizininde bulunan bir dosyadır. 
 - `npm install <package_name> --production` : Proje bağımlılıklarını yüklemek için kullanılır ve sadece üretim ortamında kullanılan paketleri yükler.
 - `npm install <package_name> --quiet` : Proje bağımlılıklarını yüklemek için kullanılır ve sessizce yükler.
 - `npm pack <package_name>` :   Projeyi paketlemek için kullanılır.
+- `npm link <package_name>` :   Proje bağımlılıklarını projeye link yapmak için kullanılır.
 
 ### npm Private Registry
 
