@@ -21,4 +21,11 @@
 npx create-react-app my-react-app
 ``` 
 
+## Kaynak
 
+- [React JS](https://react.dev/)
+- [Create React App](https://create-react-app.dev/)
+- [Node JS](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/)
+- [Git](https://git-scm.com/)
+- [VS Code](https://code.visualstudio.com/)
