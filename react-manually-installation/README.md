@@ -80,4 +80,39 @@ npm set registry "<private registry endpoint>"
 
 ## webpack Nedir?
 
-webpack, JavaScript uygulamaları için bir modül paketleyicisidir. webpack, uygulamamızda kullanılan tüm modülleri birleştirerek tek bir dosya haline getirir. Bu sayede, uygulamamızın performansı artar.
+webpack, JavaScript uygulamaları için bir modül paketleyicisidir. webpack, uygulamamızda kullanılan tüm modülleri birleştirerek tek bir dosya haline getirir. Bu sayede, uygulamamızın performansı artar. Yöetimsel olarak projelerinizin daha kolay ve efektif olarak yönetilmesini sağlar.
+
+### webpack.config.js Dosyası
+
+webpack.config.js dosyası, webpack tarafından kullanılan yapılandırma dosyasıdır. Bu dosya, webpack tarafından otomatik olarak oluşturulmaz. Bu dosyayı biz oluştururuz.
+
+### webpack.config.js Dosya Yapısı
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js', // Uygulamanın giriş noktası
+  output: { // Uygulamanın çıkış noktası
+    path: path.join(__dirname, '/dist'),
+    filename: 'index_bundle.js'
+  },
+  module: { // Uygulamada kullanılacak modüller
+    rules: [
+      {
+        test: /\.js$/, // Uygulamada kullanılacak modüllerin uzantıları
+        exclude: /node_modules/, // Uygulamada kullanılacak modüllerin dışarıda tutulacak klasörleri
+        use: {
+          loader: 'babel-loader' // Uygulamada kullanılacak modüllerin yükleyicileri
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ]
+}
+```
