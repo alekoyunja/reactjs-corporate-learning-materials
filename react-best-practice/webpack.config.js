@@ -8,11 +8,12 @@ module.exports = {
   entry: "./src/index.jsx",
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "bundle.js", 
+    filename: "app.[hash].js",
+    assetModuleFilename: 'assets/[name][hash][ext]'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", 
+      template: "./public/index.html",
     }),
   ],
   devServer: {
@@ -35,9 +36,12 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-        loader: "url-loader",
-        options: { limit: false },
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },

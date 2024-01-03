@@ -1,6 +1,7 @@
 import React, { useEffect, memo } from "react";
 import styles from "./App.module.css";
 import { Button } from "./components";
+import logo from "./assets/logo192.png";
 
 const App = memo(() => {
     useEffect(() => {
@@ -9,6 +10,8 @@ const App = memo(() => {
 
     return (
         <section className={styles.App}>
+            <div className="logo"></div>
+            <img src={logo} alt="logo" />
             <Button className="other-class" onClick={() => console.log("clicked")}>
                 Click me!
             </Button>
