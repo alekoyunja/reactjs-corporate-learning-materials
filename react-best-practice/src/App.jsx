@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import styles from "./App.module.css";
 import { Button } from "./components";
+import styles from "./App.modules.css";
 import logo from "./assets/logo192.png";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
 
     return (
         <section className={styles.App}>
-            <div className="logo"></div>
+            <div className={styles.logo}></div>
             <img src={logo} alt="logo" />
             <Button
                 className="other-class"
