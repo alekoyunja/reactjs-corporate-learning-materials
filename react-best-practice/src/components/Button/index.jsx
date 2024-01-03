@@ -1,8 +1,6 @@
-//react function component
-
-import React from 'react';
-import PropTypes from 'prop-types';
-import './button.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./button.scss";
 
 const Button = ({ children, onClick, className }) => (
     <button type="button" className={`button ${className}`} onClick={onClick}>
@@ -17,8 +15,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    onClick: () => { },
-    className: '',
+    onClick: () => {},
+    className: "",
 };
 
 export default Button;
