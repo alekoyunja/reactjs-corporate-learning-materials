@@ -10,14 +10,7 @@ const App = () => {
 
     return (
         <section className={styles.App}>
-            <div className={styles.logo}></div>
-            <img src={logo} alt="logo" />
-            <Button
-                className="other-class"
-                onClick={() => console.log("clicked")}
-            >
-                Click me!
-            </Button>
+            <p>asd</p>
         </section>
     );
 };
