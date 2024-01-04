@@ -1,4 +1,4 @@
-# react-todo-app
+# react-todo-app-styling
 
 ## Kaynak
 
