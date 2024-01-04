@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./AddTodoForm.modules.css";
 
 const AddTodoForm = ({ addTodo }) => {
     const [text, setText] = useState("");
@@ -14,7 +13,7 @@ const AddTodoForm = ({ addTodo }) => {
     };
 
     return (
-        <form className={styles.AddTodoForm} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={text}

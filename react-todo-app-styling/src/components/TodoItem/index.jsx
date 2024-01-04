@@ -1,12 +1,10 @@
 import React from "react";
-import styles from "./TodoItem.modules.css";
 
 import PropTypes from "prop-types";
 
 function TodoItem({ todo, toggleTodo, deleteTodo }) {
     return (
         <li
-            className={styles.TodoItem}
             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
         >
             {todo.text}

@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { TodoItem } from "../";
-import styles from "./TodoList.modules.css";
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
     return (
-        <ul className={styles.TodoList}>
+        <ul>
             {todos.map((todo) => (
                 <TodoItem
                     key={todo.id}

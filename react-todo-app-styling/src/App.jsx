@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import TodoApp from "./TodoApp";
-import styles from "./App.modules.css";
 
 const App = () => {
     useEffect(() => {
@@ -8,7 +7,7 @@ const App = () => {
     });
 
     return (
-        <section className={styles.App}>
+        <section>
             <TodoApp />
         </section>
     );
