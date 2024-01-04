@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Button } from "./components";
+import TodoApp from "./TodoApp";
 import styles from "./App.modules.css";
-import logo from "./assets/logo192.png";
 
 const App = () => {
     useEffect(() => {
@@ -10,7 +9,7 @@ const App = () => {
 
     return (
         <section className={styles.App}>
-            <p>asd</p>
+            <TodoApp />
         </section>
     );
 };
