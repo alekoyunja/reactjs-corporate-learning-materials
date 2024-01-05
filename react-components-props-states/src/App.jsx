@@ -1,25 +1,14 @@
-import React, { useEffect } from "react";
-import { Button } from "./components";
-import styles from "./App.modules.css";
-import logo from "./assets/logo192.png";
+import React from "react";
+import ClassComponent from "./ClassComponents";
+import FunctionalComponent from "./FunctionalComponent";
 
 const App = () => {
-    useEffect(() => {
-        console.log("app component mounted");
-    });
-
-    return (
-        <section className={styles.App}>
-            <div className={styles.logo}></div>
-            <img src={logo} alt="logo" />
-            <Button
-                className="other-class"
-                onClick={() => console.log("clicked")}
-            >
-                Click me!
-            </Button>
-        </section>
-    );
+  return (
+    <main>
+      <ClassComponent title="Class Component" />
+      <FunctionalComponent title="Functional Component" />
+    </main>
+  );
 };
 
 export default App;
