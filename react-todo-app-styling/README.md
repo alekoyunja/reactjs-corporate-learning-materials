@@ -1,4 +1,4 @@
-# react-todo-app-styling
+# Styling
 
 ## Kurulum
 

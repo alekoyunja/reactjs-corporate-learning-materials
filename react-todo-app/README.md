@@ -1,4 +1,4 @@
-# react-todo-app
+# React JS Todo App Projesi
 
 ## Kaynak
 
