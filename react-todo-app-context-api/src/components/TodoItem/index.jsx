@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TodoContext } from "../../contexts/TodoContext";
 
 function TodoItem({ todo }) {
-    const { dispatch } = useContext(TodoContext);
+    const { deleteTodo, updateTodo } = useContext(TodoContext);
 
     return (
         <li
@@ -14,18 +14,11 @@ function TodoItem({ todo }) {
             <section className="todo-actions">
                 <button
                     className="btn btn-danger"
-                    onClick={() =>
-                        dispatch({ type: "DELETE_TODO", payload: todo.title })
-                    }
+                    onClick={() => deleteTodo(todo.id)}
                 >
                     Sil
                 </button>
-                <button
-                    className="btn"
-                    onClick={() =>
-                        dispatch({ type: "UPDATE_TODO", payload: todo.title })
-                    }
-                >
+                <button className="btn" onClick={() => updateTodo(todo)}>
                     Yapıldı
                 </button>
             </section>
