@@ -14,12 +14,22 @@ const AddTodoForm = ({ addTodo }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <button type="submit">Add Todo</button>
+            <div className="col-lg-12">
+                <label htmlFor="todo" className="form-label m-3">
+                    Yeni Todo
+                </label>
+                <input
+                    id="todo"
+                    name="todo"
+                    className="form-control"
+                    type="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+            </div>
+            <button className="btn btn-primary m-3" type="submit">
+                Add Todo
+            </button>
         </form>
     );
 };

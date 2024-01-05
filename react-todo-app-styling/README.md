@@ -1,7 +1,18 @@
 # react-todo-app-styling
 
+## Kurulum
+
+```bash
+npm install bootstrap
+```
+
+`styles.scss` dosyasına aşağıdaki satırı ekleyin.
+
+```scss
+@import "~bootstrap/scss/bootstrap";
+```
+
 ## Kaynak
 
-- [npm](https://www.npmjs.com/)
-- [webpack](https://webpack.js.org/)
-- [Dev Server](https://webpack.js.org/configuration/dev-server/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Bootstrap Installation](https://getbootstrap.com/docs/5.0/getting-started/download/)

@@ -17,16 +17,28 @@ function TodoApp() {
         );
     };
 
-    const deleteTodo = id => {
-        setTodos(todos.filter(todo => todo.id !== id));
+    const deleteTodo = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
     };
 
     return (
-        <div>
-            <h1>Todo List</h1>
-            <AddTodoForm addTodo={addTodo} />
-            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-        </div>
+        <section id="todo-app" className="container">
+            <div className="row">
+                <div className="col-lg-12">
+                    <h1 className="text-center">Todo App</h1>
+                </div>
+                <div className="col-lg-12">
+                    <AddTodoForm addTodo={addTodo} />
+                </div>
+                <div className="col-lg-12">
+                    <TodoList
+                        todos={todos}
+                        toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                    />
+                </div>
+            </div>
+        </section>
     );
 }
 

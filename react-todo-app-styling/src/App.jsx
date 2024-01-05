@@ -7,9 +7,7 @@ const App = () => {
     });
 
     return (
-        <section>
-            <TodoApp />
-        </section>
+        <TodoApp />
     );
 };
 
