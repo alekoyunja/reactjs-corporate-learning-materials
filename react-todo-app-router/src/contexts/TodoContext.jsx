@@ -124,6 +124,7 @@ export const TodoProvider = ({ children }) => {
             })
             .then((data) => {
                 dispatch({ type: "ADD_TODO_SUCCESS", payload: data });
+                history.back();
             })
             .catch((error) => {
                 dispatch({ type: "ADD_TODO_FAILURE", payload: error });
@@ -134,12 +135,13 @@ export const TodoProvider = ({ children }) => {
         dispatch({ type: "DELETE_TODO_BEGIN" });
         fetch(`http://localhost:3000/todos/${id}`, {
             method: "DELETE",
-        }).then(() => {
-            dispatch({ type: "DELETE_TODO_SUCCESS", payload: id });
         })
-        .catch((error) => {
-            dispatch({ type: "DELETE_TODO_FAILURE", payload: error });
-        });
+            .then(() => {
+                dispatch({ type: "DELETE_TODO_SUCCESS", payload: id });
+            })
+            .catch((error) => {
+                dispatch({ type: "DELETE_TODO_FAILURE", payload: error });
+            });
     };
 
     const updateTodo = (todo) => {
