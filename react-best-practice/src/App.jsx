@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Button } from "./components";
-import styles from "./App.modules.css";
-import logo from "./assets/logo192.png";
+import { Button, TSButton } from "./components";
+import styles from "./App.module.css";
 
 const App = () => {
     useEffect(() => {
@@ -10,14 +9,13 @@ const App = () => {
 
     return (
         <section className={styles.App}>
-            <div className={styles.logo}></div>
-            <img src={logo} alt="logo" />
-            <Button
-                className="other-class"
-                onClick={() => console.log("clicked")}
-            >
+            <img alt="" className={styles.logo} />
+            <Button className="other-class" onClick={() => alert("clicked")}>
                 Click me!
             </Button>
+            <TSButton className="other-class" onClick={() => alert("clicked")}>
+                Click me!
+            </TSButton>
         </section>
     );
 };

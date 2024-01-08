@@ -10,7 +10,7 @@ require("dotenv").config({ path: "./.env" });
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.jsx",
+  entry: "./src/index.js",
   output: {
     // eslint-disable-next-line no-undef
     path: path.join(__dirname, "/dist"),
@@ -25,14 +25,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // .js and .jsx files
-        exclude: /node_modules/, // excluding the node_modules folder
-        resolve: {
-          extensions: [".js", ".jsx"]
-        },
-        use: {
-          loader: "babel-loader"
-        }
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.(sa|sc|c)ss$/, // styles files
@@ -52,6 +57,9 @@ module.exports = {
         type: "asset/resource",
       },
     ]
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
