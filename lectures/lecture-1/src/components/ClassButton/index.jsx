@@ -8,6 +8,30 @@ class ClassButton extends Component {
     };
   }
 
+  // state' i props' tan almak için kullanılan method
+  static getDerivedStateFromProps(props, state) {
+    return {
+      title: props.title,
+    };
+  }
+
+  componentDidMount() {
+    //component ilk render edildikten sonra çalışır
+    console.log("componentDidMount çalıştı");
+    console.log(this.state);
+  }
+
+  componentWillUnmount() {
+    //component kaldırılmadan önce çalışır
+    console.log("componentWillUnmount çalıştı");
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //component update edilmeden önce çalışır
+    console.log("shouldComponentUpdate çalıştı");
+    return false;
+  }
+
   onClicked(e) {
     console.log(this.state.count);
 
@@ -23,7 +47,7 @@ class ClassButton extends Component {
 
   render() {
     return (
-      <button type={this.props.type} onClick={(e) => this.onClicked(e)}>{this.props.title}</button>
+      <button type={this.props.type} onClick={(e) => this.onClicked(e)}>{this.props.title}{this.state.count}</button>
     );
   }
 }
