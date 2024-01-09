@@ -31,10 +31,11 @@ const ComponentArrays = () => {
 
     console.log(persons.filter(person => person.age < 30));
 
+    // birde çok element render ederken key kullanımı zorunludur.
     return (
         <div id="persons">{
             persons.map(person => (
-                <div>
+                <div key={person.id}>
                     <p>İsim: {person.firstname}</p>
                     <p>Soyisim: {person.lastname}</p>
                 </div>
