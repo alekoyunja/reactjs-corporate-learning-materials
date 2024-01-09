@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import Sayac from './components/Sayac/Sayac';
+import ComponentsArrays from './ComponentsArrays';
 
 class App extends Component {
-
-  //arrays - map function
-
   render() {
     return (
       <main id="content">
-        <Sayac />
+        <ComponentsArrays />
       </main>
     );
   }
