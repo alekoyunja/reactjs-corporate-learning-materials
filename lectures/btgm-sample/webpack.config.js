@@ -10,7 +10,6 @@ require("dotenv").config({ path: "./.env" });
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
   output: {
     // eslint-disable-next-line no-undef
     path: path.join(__dirname, "/dist"),

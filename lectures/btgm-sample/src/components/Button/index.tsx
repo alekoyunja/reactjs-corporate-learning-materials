@@ -1,13 +1,13 @@
 import React from "react";
-import "./TSButton.scss";
+import "./Button.scss";
 
-type TSButtonProps = {
+type ButtonProps = {
     children: React.ReactNode;
     onClick: () => void;
     className: string;
 };
 
-const TSButton = ({ children, onClick, className }: TSButtonProps) => (
+const Button = ({ children, onClick, className }: ButtonProps) => (
     <button
         type="button"
         className={"tsbutton" + " " + className}
@@ -17,4 +17,4 @@ const TSButton = ({ children, onClick, className }: TSButtonProps) => (
     </button>
 );
 
-export default TSButton;
+export default Button;

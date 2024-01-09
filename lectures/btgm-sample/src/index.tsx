@@ -7,7 +7,5 @@ const container = document.getElementById("app");
 const root = createRoot(container);
 
 root.render(
-    <StrictMode>
-        <App />
-    </StrictMode>
+    <p>osman</p>
 );

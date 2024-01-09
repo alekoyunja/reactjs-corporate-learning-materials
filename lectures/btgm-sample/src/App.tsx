@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, TSButton } from "./components";
-import styles from "./App.module.css";
+import { Button } from "./components";
 
 const App = () => {
     useEffect(() => {
@@ -8,14 +7,10 @@ const App = () => {
     });
 
     return (
-        <section className={styles.App}>
-            <img alt="" className={styles.logo} />
+        <section>
             <Button className="other-class" onClick={() => alert("clicked")}>
                 Click me!
             </Button>
-            <TSButton className="other-class" onClick={() => alert("clicked")}>
-                Click me!
-            </TSButton>
         </section>
     );
 };
