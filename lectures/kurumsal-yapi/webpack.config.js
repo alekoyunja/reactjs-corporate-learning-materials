@@ -26,15 +26,19 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 resolve: {
-                  extensions: [".js", ".jsx"]
+                    extensions: [".js", ".jsx"]
                 },
                 use: {
-                  loader: "babel-loader",
+                    loader: "babel-loader",
                 },
-              },
+            },
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
             },
         ]
     }
