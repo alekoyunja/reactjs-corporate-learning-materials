@@ -44,3 +44,4 @@
 
 - [npm](https://www.npmjs.com/)
 - [webpack](https://webpack.js.org/)
+- [dummyjson](https://dummyjson.com/)
