@@ -11,6 +11,7 @@ const LoginForm = () => {
             <input type="text" placeholder="Kullanıcı Adınız" />
             <label>Şifre</label>
             <input type="password" placeholder="Şifreniz" />
+            <button type="submit">Giriş Yap</button>
         </form>
     );
 };

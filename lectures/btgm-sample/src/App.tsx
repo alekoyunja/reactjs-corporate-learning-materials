@@ -8,12 +8,9 @@ const App = () => {
     });
 
     return (
-        <section>
-            <Button className="other-class" onClick={() => alert("clicked")}>
-                Click me!
-            </Button>
+        <main id="main">
             <Login />
-        </section>
+        </main>
     );
 };
 
