@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from "./components";
+import Login from "./pages/Login";
 
 const App = () => {
     useEffect(() => {
@@ -11,6 +12,7 @@ const App = () => {
             <Button className="other-class" onClick={() => alert("clicked")}>
                 Click me!
             </Button>
+            <Login />
         </section>
     );
 };

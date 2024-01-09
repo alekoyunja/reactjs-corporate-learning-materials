@@ -1,5 +1,5 @@
 import React from "react";
-import "./Button.scss";
+import styles from "./Button.module.scss";
 
 type ButtonProps = {
     children: React.ReactNode;
@@ -10,7 +10,7 @@ type ButtonProps = {
 const Button = ({ children, onClick, className }: ButtonProps) => (
     <button
         type="button"
-        className={"tsbutton" + " " + className}
+        className={styles.button + " " + className}
         onClick={onClick}
     >
         {children}
