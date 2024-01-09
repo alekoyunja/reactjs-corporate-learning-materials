@@ -21,6 +21,7 @@ module.exports = {
   devServer: {
     // eslint-disable-next-line no-undef
     port: process.env.PORT || 3000,
+    historyApiFallback: true
   },
   module: {
     rules: [

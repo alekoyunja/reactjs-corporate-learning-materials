@@ -1,15 +1,5 @@
-import React from "react";
-import LoginForm from "./LoginForm";
-import Title from "./Title";
+import { lazy } from "react";
 
-const Login = () => {
-    return (
-        <section id="login">
-            <img src={require("../../assets/logo192.png")} alt="Kurum Logo" />
-            <Title title="Giriş Yap" />
-            <LoginForm />
-        </section>
-    );
-};
+const Login = lazy(() => import("./Views/Login"));
 
 export default Login;
