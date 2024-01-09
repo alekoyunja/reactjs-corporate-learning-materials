@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import ClassButton from './components/ClassButton';
-import FunctionButton from './components/FunctionButton';
+import Sayac from './components/Sayac/Sayac';
 
 class App extends Component {
+
+  //arrays - map function
+
   render() {
     return (
       <main id="content">
-        <ClassButton title="Click" type="button" />
-        <FunctionButton title="Click" type="button" />
+        <Sayac />
       </main>
     );
   }

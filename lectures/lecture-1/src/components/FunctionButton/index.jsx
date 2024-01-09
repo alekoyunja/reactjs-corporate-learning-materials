@@ -3,7 +3,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef, useId } from "reac
 // arrow function
 const FunctionButton = (props) => {
     // object destructuring
-    const { title, type } = props;
+    const { title, type, arttirClicked } = props;
     const [count, setCount] = useState(0);
     // elementin referansını tutar
     const buttonDOM = useRef(null);
@@ -32,6 +32,7 @@ const FunctionButton = (props) => {
     return (
         <button id="yeni-button" ref={buttonDOM} type={type} onClick={() => {
             setCount(() => count+1);
+            arttirClicked();
         }}>{title}</button>
     );
 };
