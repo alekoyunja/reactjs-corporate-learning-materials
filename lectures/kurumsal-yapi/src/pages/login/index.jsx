@@ -5,9 +5,8 @@ import logo from "../../assets/logo.jpeg";
 
 const Login = () => {
     return (
-        <section id="login">
-            <div className="row">
-                <div className="col-12">
+        <section id="login" className="row">
+            <div className="col-12">
                     <img src={logo} alt="Kurum Logo" />
                 </div>
                 <div className="col-12">
@@ -16,7 +15,6 @@ const Login = () => {
                 <div className="col-12">
                     <LoginForm />
                 </div>
-            </div>
         </section>
     );
 };

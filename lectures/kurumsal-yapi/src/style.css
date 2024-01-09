@@ -1,1 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+#login {
+    width: 300px;
+}
