@@ -7,7 +7,7 @@ dotenv.config();
 
 // Webpack configuration
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js"
@@ -21,6 +21,9 @@ module.exports = {
         port: process.env.PORT || 3000,
         historyApiFallback: true,
     },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js", ".jsx"],
+    },
     module: {
         rules: [
             {
@@ -32,6 +35,11 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                 },
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.css$/i,
