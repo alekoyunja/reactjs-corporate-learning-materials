@@ -8,9 +8,9 @@
     "build": "webpack --config webpack.config.js --mode production",
     "test": "npx jest",
     "lint": "npx eslint src/**/*.tsx src/**/*.ts",
-    "lint:fix": "npx eslint src/**/*.tsx src/**/*.ts --fix",
-    "prettier": "npx prettier src/**/*.jsx src/**/*.js --check",
-    "prettier:fix": "npx prettier src/**/*.jsx src/**/*.js --write"
+    "lint:fix": "npx eslint src/**/*.jsx src/**/*.js src/**/*.tsx src/**/*.ts --fix",
+    "prettier": "npx prettier src/**/*.jsx src/**/*.js src/**/*.tsx src/**/*.ts --check",
+    "prettier:fix": "npx prettier src/**/*.jsx src/**/*.js src/**/*.tsx src/**/*.ts --write"
   },
   "author": "",
   "license": "ISC",

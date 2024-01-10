@@ -4,12 +4,14 @@ type AuthenticaionState = {
     response: any;
     error: any;
     loading: boolean;
+    isAuthenticated?: boolean;
 };
 
 const initialState: AuthenticaionState = {
     response: null,
     error: null,
     loading: false,
+    isAuthenticated: false
 };
 
 const authenticaionReducer = (state: AuthenticaionState, action: any) => {
@@ -26,6 +28,7 @@ const authenticaionReducer = (state: AuthenticaionState, action: any) => {
                 response: action.payload,
                 loading: false,
                 error: null,
+                isAuthenticated: true
             };
         case "LOGIN_FAILED":
             return {
@@ -43,15 +46,15 @@ const AuthenticaionContext = createContext(null);
 const AuthenticaionProvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(authenticaionReducer, initialState);
 
-    const login = async (_username: string, _password: string) => {
+    const login = async (username: string, password: string) => {
         dispatch({ type: "LOGIN_BEGIN" });
 
         try {
             const response = await fetch("https://dummyjson.com/auth/login", {
                 method: "POST",
                 body: JSON.stringify({
-                    username: "kminchelle",
-                    password: "0lelplR",
+                    username: username,
+                    password: password,
                     expiresInMins: 60,
                 }),
                 headers: {
