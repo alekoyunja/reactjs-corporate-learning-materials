@@ -8,6 +8,7 @@ const Navigation = () => {
             <Routes>
                 <Route path="/" element={<h1>Dashboard</h1>} />
                 <Route path="/login" element={<Login />} />
+                <Route path="*" element={<h1 style={{color: "red"}}>404 Not Found</h1>} />
             </Routes>
         </BrowserRouter>
     );
