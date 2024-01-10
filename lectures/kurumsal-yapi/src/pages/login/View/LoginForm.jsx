@@ -10,6 +10,15 @@ const LoginForm = () => {
         const username = data.get("username");
         const password = data.get("password");
         console.log(username, password);
+
+        // fetch ile login işlemini yapacağız
+        fetch("https://dummyjson.com/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
     }
     return (
 
