@@ -10,26 +10,6 @@ const LoginForm = () => {
         const username = data.get("username");
         const password = data.get("password");
         console.log(username, password);
-
-        // fetch ile login işlemini yapacağız
-        // fetch asenkron çalışır ve geriye bir promise nesnesi döner
-        fetch("https://dummyjson.com/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username: username, password: password })
-        })
-        .then(response => {
-            console.log(response);
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
     }
     return (
 
