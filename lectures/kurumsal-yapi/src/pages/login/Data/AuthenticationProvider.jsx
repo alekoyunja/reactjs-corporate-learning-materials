@@ -1,10 +1,11 @@
 import React, {createContext, useReducer} from "react";
 
 // Context API
-const AuthenticationContext = createContext();
+const AuthenticationContext = createContext(null);
 
 // useReducer
 const initialValues = { 
+    isAuth: false,
     response: null,
     error: null,
     loading: false
@@ -14,21 +15,19 @@ const authenticationReducer = (state, action) => {
     switch (action.type) {
         case "LOGIN_BEGIN":
             return {
+                ...state,
                 loading: true,
-                error: null,
-                response: null
             };
         case "LOGIN_SUCCESS":
             return {
-                loading: false,
+                ...state,
+                isAuth: true,
                 response: action.payload,
-                error: null
             };
             case "LOGIN_FAILED":
                 return {
-                    loading: false,
-                    response: null,
-                    error: action.payload
+                    ...state,
+                    error: action.payload,
                 };
         default:
             return state;
@@ -51,7 +50,9 @@ const AuthenticationProvider = ({ children }) => {
             body: JSON.stringify({ username: username, password: password })
         })
         .then(response => {
-            return response.json();
+            if(response.ok)
+                return response.json();
+            else throw new Error("Login işlemi başarısız oldu!");
         })
         .then(data => {
             dispatch({ type: "LOGIN_SUCCESS", payload: data });
@@ -63,7 +64,7 @@ const AuthenticationProvider = ({ children }) => {
     }
 
     return (
-        <AuthenticationContext.Provider value={{ state: initialValues, login }}>
+        <AuthenticationContext.Provider value={{ state, login }}>
             {children}
         </AuthenticationContext.Provider>
     );

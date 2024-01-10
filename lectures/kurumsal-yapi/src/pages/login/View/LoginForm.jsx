@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthenticationContext } from "../Data/AuthenticationProvider";
 
 const LoginForm = () => {
+    const { login } = useContext(AuthenticationContext);
 
     const onSubmit = (e) => {
         // default davranışını kes
@@ -9,10 +11,10 @@ const LoginForm = () => {
         const data = new FormData(e.currentTarget);
         const username = data.get("username");
         const password = data.get("password");
-        console.log(username, password);
+        login(username, password);
     }
-    return (
 
+    return (
         <form id="login-form"
             onSubmit={onSubmit}>
             <input
