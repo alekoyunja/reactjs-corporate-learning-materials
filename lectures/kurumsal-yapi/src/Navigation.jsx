@@ -12,8 +12,7 @@ const Navigation = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<h1>Dashboard</h1>} />
-                {isAuth ? <Route path="/login" element={<Login />} /> : null}
+                <Route path="/" element={isAuth ? <p>dashboard</p> : <Login />} />
                 <Route path="*" element={<h1 style={{color: "red"}}>404 Not Found</h1>} />
             </Routes>
         </BrowserRouter>
