@@ -1,7 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 .App {
-    background-color: #071944;
     width: 100%;
     height: 100vh;
 }
