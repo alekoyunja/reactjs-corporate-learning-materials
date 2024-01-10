@@ -1,11 +1,13 @@
 import React from "react";
 
+const AuthenticationContext = React.createContext();
+
 const AuthenticationProvider = ({ children }) => {
     return (
-        <div>
+        <AuthenticationContext.Provider value={{ isAuthenticated: false }}>
             {children}
-        </div>
+        </AuthenticationContext.Provider>
     );
 };
 
-export default AuthenticationProvider;
+export {AuthenticationProvider, AuthenticationContext};
