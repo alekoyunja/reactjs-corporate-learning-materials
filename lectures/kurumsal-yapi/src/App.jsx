@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Login from './pages/login';
+import React, { Component } from "react";
+import Login from "./pages/login";
 
 class App extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className="App">
         <Login />
       </div>
     );
