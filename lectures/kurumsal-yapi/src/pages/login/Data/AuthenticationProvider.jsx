@@ -1,5 +1,6 @@
 import React from "react";
 
+// Context API
 const AuthenticationContext = React.createContext();
 
 const AuthenticationProvider = ({ children }) => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
-import AuthenticationProvider from "./pages/login/Data/AuthenticationProvider";
+import { AuthenticationProvider } from "./pages/login/Data/AuthenticationProvider";
 
 class App extends Component {
   render() {
