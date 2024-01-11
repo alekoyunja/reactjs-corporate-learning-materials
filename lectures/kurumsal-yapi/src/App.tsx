@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Suspense } from "react";
+import { AuthenticaionProvider } from "./pages/Login/Data/AuthenticaionProvider";
+import { UserProvider } from "./pages/User/Data/UserProvider";
 import Navigation from "./Navigation";
-import { AuthenticationProvider } from "./pages/login/Data/AuthenticationProvider";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <AuthenticationProvider>
-          <Navigation />
-        </AuthenticationProvider>
-      </div>
+        <main id="main" className="container">
+            <Suspense fallback={<p>Yükleniyor...</p>}>
+                <AuthenticaionProvider>
+                    <UserProvider>
+                        <Navigation />
+                    </UserProvider>
+                </AuthenticaionProvider>
+            </Suspense>
+        </main>
     );
-  }
-}
+};
 
 export default App;

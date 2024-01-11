@@ -1,21 +1,31 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/login";
-import { AuthenticationContext } from "./pages/login/Data/AuthenticationProvider";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { AuthenticaionContext } from "./pages/Login/Data/AuthenticaionProvider";
+import {Login, User} from "./pages/";
 
 const Navigation = () => {
-    const { state } = useContext(AuthenticationContext);
-    const { isAuth } = state;
+    const { state } = useContext(AuthenticaionContext);
+    const { isAuthenticated } = state;
 
-    console.log(isAuth);
+    const AuthRoutes = () => {
+        return (
+            <Route path="*" element={<User />} />
+        );
+    };
+
+    const PublicRoutes = () => {
+        return (
+            <Route path="/" element={<Login />} />
+        );
+    };
 
     return (
-        <BrowserRouter>
+        <Router>
             <Routes>
-                <Route path="/" element={isAuth ? <p>dashboard</p> : <Login />} />
-                <Route path="*" element={<h1 style={{color: "red"}}>404 Not Found</h1>} />
+                {isAuthenticated ? AuthRoutes() : PublicRoutes()}
+                <Route path="*" element={<p>404</p>} />
             </Routes>
-        </BrowserRouter>
+        </Router>
     );
 };
 
