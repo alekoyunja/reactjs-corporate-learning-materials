@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { AuthenticaionProvider } from "./pages/Login/Data/AuthenticaionProvider";
+import { UserProvider } from "./pages/User/Data/UserProvider";
 import Navigation from "./Navigation";
 
 const App = () => {
@@ -7,7 +8,9 @@ const App = () => {
         <main id="main">
             <Suspense fallback={<p>Yükleniyor...</p>}>
                 <AuthenticaionProvider>
-                    <Navigation />
+                    <UserProvider>
+                        <Navigation />
+                    </UserProvider>
                 </AuthenticaionProvider>
             </Suspense>
         </main>

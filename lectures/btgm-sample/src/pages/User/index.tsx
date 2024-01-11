@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const Dashboard = lazy(() => import("./Views"));
+const User = lazy(() => import("./Views"));
 
-export default Dashboard;
+export default User;
