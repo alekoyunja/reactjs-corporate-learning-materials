@@ -3,9 +3,11 @@ import React, { createContext, useReducer } from "react";
 type UserResponse = {
     users: User[];
     total: number;
+    limit: number;
 };
 
 type User = {
+    id: number
     firstName: string;
     lastName: string;
     age: number;
@@ -68,6 +70,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
             if (response.ok) {
                 const data: UserResponse = await response.json();
                 const users: User[] = data.users.map((user: User) => ({
+                    id: user.id,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     age: user.age,
