@@ -1,11 +1,13 @@
-import React from "react";
-import { User } from "../Data/UserProvider";
+import React, {useContext} from "react";
+import { UserContext, User } from "../Data/UserProvider";
 
 type UserListProps = {
     users: User[];
 };
 
 const UserList = ({ users }: UserListProps) => {
+    const { removeUser } = useContext(UserContext);
+
     return (
         <div>
             <h1>UserList</h1>
@@ -14,7 +16,7 @@ const UserList = ({ users }: UserListProps) => {
                     {users.map((user: User) => (
                         <tr key={user.id}>
                             <td>{user.firstName}</td>
-                            <td><button type="button">Kullanıcı Sil</button></td>
+                            <td><button onClick={() => removeUser(user.id)} type="button">Kullanıcı Sil</button></td>
                         </tr>
                     ))}
                 </tbody>

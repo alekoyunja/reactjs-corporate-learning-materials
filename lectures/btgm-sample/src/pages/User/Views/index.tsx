@@ -10,6 +10,8 @@ const User: React.FC = () => {
     useEffect(() => {
         getAllUsers();
     }, []);
+
+    console.log(users);
     
     return (
         <div>

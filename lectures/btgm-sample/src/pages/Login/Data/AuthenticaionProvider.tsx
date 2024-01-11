@@ -1,4 +1,6 @@
 import React, { createContext, useReducer } from "react";
+import { setUserSession, getUserSession } from "./AuthenticationService";
+import { get } from "http";
 
 type AuthenticaionState = {
     response: any;
@@ -11,7 +13,7 @@ const initialState: AuthenticaionState = {
     response: null,
     error: null,
     loading: false,
-    isAuthenticated: false
+    isAuthenticated: getUserSession() ? true : false,
 };
 
 const authenticaionReducer = (state: AuthenticaionState, action: any) => {
@@ -64,6 +66,7 @@ const AuthenticaionProvider = ({ children }: { children: React.ReactNode }) => {
 
             if (response.ok) {
                 const data = await response.json();
+                setUserSession(data);
                 dispatch({ type: "LOGIN_SUCCESS", payload: data });
             } else {
                 const error = await response.text();
