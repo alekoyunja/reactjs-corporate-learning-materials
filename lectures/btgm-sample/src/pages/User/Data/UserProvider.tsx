@@ -1,5 +1,10 @@
 import React, { createContext, useReducer } from "react";
 
+type UserResponse = {
+    users: User[];
+    total: number;
+};
+
 type User = {
     firstName: string;
     lastName: string;
@@ -7,13 +12,13 @@ type User = {
 }
 
 type UserState = {
-    response: User[];
+    users: User[];
     error: any;
     loading: boolean;
 };
 
 const initialState: UserState = {
-    response: null,
+    users: null,
     error: null,
     loading: false,
 };
@@ -29,7 +34,7 @@ const userReducer = (state: UserState, action: any) => {
         case "USERS_SUCCESS":
             return {
                 ...state,
-                response: action.payload as User[],
+                users: action.payload as User[],
                 loading: false,
                 error: null
             };
@@ -61,10 +66,13 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
             });
 
             if (response.ok) {
-                console.log(response);
-                
-                const data = await response.json();
-                dispatch({ type: "USERS_SUCCESS", payload: data });
+                const data: UserResponse = await response.json();
+                const users: User[] = data.users.map((user: User) => ({
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    age: user.age,
+                }));
+                dispatch({ type: "USERS_SUCCESS", payload: users });
             } else {
                 const error = await response.text();
                 dispatch({ type: "USERS_FAILED", payload: error });
@@ -81,4 +89,4 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export { UserContext, UserProvider };
+export { UserContext, UserProvider, User };

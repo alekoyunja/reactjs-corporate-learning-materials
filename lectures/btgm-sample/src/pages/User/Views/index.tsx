@@ -1,20 +1,25 @@
 import React, { useEffect, useContext } from "react";
-import { UserContext } from "../Data/UserProvider";
+import { UserContext, User } from "../Data/UserProvider";
 
 
 const User: React.FC = () => {
     const { state, getAllUsers } = useContext(UserContext);
-    const { response } = state;
+    const { users } = state;
 
     useEffect(() => {
         getAllUsers();
     }, []);
 
-    console.log(response);
+    console.log(users);
     
     return (
         <div>
             <h1>UserView</h1>
+            {
+                users && users.map((user: User) => (
+                    <p>{user.firstName}</p>
+                ))
+            }
         </div>
     );
 };
