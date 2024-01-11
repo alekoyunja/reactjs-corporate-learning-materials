@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import UserList from "../Views/UserList";
 import { UserContext, User } from "../Data/UserProvider";
 
 
@@ -9,16 +10,12 @@ const User: React.FC = () => {
     useEffect(() => {
         getAllUsers();
     }, []);
-
-    console.log(users);
     
     return (
         <div>
             <h1>UserView</h1>
             {
-                users && users.map((user: User) => (
-                    <p>{user.firstName}</p>
-                ))
+                users && <UserList users={users} />
             }
         </div>
     );
