@@ -1,17 +1,28 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthenticaionContext } from "./pages/Login/Data/AuthenticaionProvider";
-import Login from "./pages/Login";
+import {Login, User} from "./pages/";
 
 const Navigation = () => {
     const { state } = useContext(AuthenticaionContext);
     const { isAuthenticated } = state;
 
+    const AuthRoutes = () => {
+        return (
+            <Route path="/" element={<User />} />
+        );
+    };
+
+    const PublicRoutes = () => {
+        return (
+            <Route path="/" element={<Login />} />
+        );
+    };
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} />
-                <Route path="/dashboard" element={<p>dashboard</p>} />
+                {isAuthenticated ? AuthRoutes() : PublicRoutes()}
                 <Route path="*" element={<p>sayfa bulunamadı</p>} />
             </Routes>
         </Router>
