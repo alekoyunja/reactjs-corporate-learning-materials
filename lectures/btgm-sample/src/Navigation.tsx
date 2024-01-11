@@ -23,7 +23,6 @@ const Navigation = () => {
         <Router>
             <Routes>
                 {isAuthenticated ? AuthRoutes() : PublicRoutes()}
-                <Route path="*" element={<p>sayfa bulunamadı</p>} />
             </Routes>
         </Router>
     );

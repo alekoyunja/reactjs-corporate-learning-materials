@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import UserList from "../Views/UserList";
 import { UserContext, User } from "../Data/UserProvider";
-
 
 const User: React.FC = () => {
     const { state, getAllUsers } = useContext(UserContext);
@@ -12,14 +12,12 @@ const User: React.FC = () => {
     }, []);
 
     console.log(users);
-    
+
     return (
-        <div>
-            <h1>UserView</h1>
-            {
-                users && <UserList users={users} />
-            }
-        </div>
+        <Routes>
+            <Route path="/" element={<UserList users={users} />} />
+            <Route path="/add" element={<p>add</p>} />
+        </Routes>
     );
 };
 

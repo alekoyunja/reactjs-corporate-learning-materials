@@ -15,7 +15,7 @@ type UserState = {
 };
 
 const initialState: UserState = {
-    users: null,
+    users: [],
     error: null,
     loading: false,
 };
@@ -92,10 +92,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
         dispatch({ type: "DELETE_BEGIN" });
 
         try {
-            const data = await deleteUser(id);
-
-            const user: User = data;
-            getAllUsers();
+            await deleteUser(id);
         } catch (error) {
             dispatch({ type: "DELETE_FAILED", payload: error.message });
         }
