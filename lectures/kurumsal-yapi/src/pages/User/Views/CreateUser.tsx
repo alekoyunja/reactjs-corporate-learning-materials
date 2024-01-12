@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import {User} from "../Data/UserProvider";
+import { User, UserContext } from "../Data/UserProvider";
 
 const CreateUser = () => {
+    const { addUser } = useContext(UserContext);
     const validationSchema = Yup.object().shape(
         {
             firstName: Yup.string().required("Zorunlu alan"),
@@ -20,16 +21,16 @@ const CreateUser = () => {
         },
         validationSchema,
         onSubmit: (values) => {
-            // Handle form submission here
-            console.log(values);
+            addUser(values);
+            history.back();
         },
     });
 
     console.log("errors", formik.errors);
-    
+    console.log("touched", formik.touched);
 
     return (
-        <section>
+        <section className="card mt-4 p-4">
             <h2>Kişi Ekle</h2>
             <form onSubmit={formik.handleSubmit}>
             <label>İsminiz</label>
@@ -41,7 +42,7 @@ const CreateUser = () => {
                 <label>Yaş</label>
             <input onChange={formik.handleChange}
                 value={formik.values.age} type="number" name="age" className="form-control" placeholder="Yaşınızı giriniz" />
-            <button type="submit" className="btn btn-success">kişi Oluştur</button>
+            <button type="submit" className="btn btn-success mt-4">kişi Oluştur</button>
         </form>
         </section>
     );
