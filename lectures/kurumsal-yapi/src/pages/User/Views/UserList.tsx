@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext, User } from "../Data/UserProvider";
+import { useNavigate  } from "react-router-dom";
 
 type UserListProps = {
     users: User[];
@@ -7,6 +8,7 @@ type UserListProps = {
 
 const UserList = ({ users }: UserListProps) => {
     const { removeUser } = useContext(UserContext);
+    const navigate = useNavigate ();
 
     return (
         <section className="container">
@@ -17,7 +19,7 @@ const UserList = ({ users }: UserListProps) => {
                             <h1>Kullanıcı Listesi</h1>
                         </div>
                         <div className="col-6 text-end">
-                            <button className="btn btn-success">Ekle</button>
+                            <button className="btn btn-success" onClick={() => navigate("/kullanici-ekle")}>Ekle</button>
                         </div>
                     </div>
                     <table className="table">
