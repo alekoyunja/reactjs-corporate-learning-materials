@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { getUsers, deleteUser, createUser, updateUser } from "./UserService";
+import { getUsers, deleteUser, createUser, updateUser, getUser } from "./UserService";
 
 type User = {
     id?: number;
@@ -12,12 +12,14 @@ type UserState = {
     users: User[];
     error: any;
     loading: boolean;
+    user?: User;
 };
 
 const initialState: UserState = {
     users: [],
     error: null,
     loading: false,
+    user: null,
 };
 
 const userReducer = (state: UserState, action: any) => {
@@ -96,6 +98,25 @@ const userReducer = (state: UserState, action: any) => {
                     loading: false,
                     error: action.payload,
                 };
+                case "GET_BEGIN":
+                    return {
+                        ...state,
+                        loading: true,
+                        error: null,
+                    };
+                case "GET_SUCCESS":
+                    return {
+                        ...state,
+                        user: action.payload as User,
+                        loading: false,
+                        error: null,
+                    };
+                case "GET_FAILED":
+                    return {
+                        ...state,
+                        loading: false,
+                        error: action.payload,
+                    };
         default:
             return state;
     }
@@ -121,6 +142,18 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
             dispatch({ type: "USERS_SUCCESS", payload: users });
         } catch (error) {
             dispatch({ type: "USERS_FAILED", payload: error.message });
+        }
+    };
+
+    const getUserById = async (id: number) => {
+        dispatch({ type: "GET_BEGIN" });
+
+        try {
+            const user = await getUser(id);
+            
+            dispatch({ type: "GET_SUCCESS", payload: user });
+        } catch (error) {
+            dispatch({ type: "GET_FAILED", payload: error.message });
         }
     };
 
@@ -160,7 +193,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <UserContext.Provider
-            value={{ state, getAllUsers, removeUser, addUser, editUser }}
+            value={{ state, getAllUsers, removeUser, addUser, editUser, getUserById }}
         >
             {children}
         </UserContext.Provider>

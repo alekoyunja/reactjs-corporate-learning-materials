@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { User, UserContext } from "../Data/UserProvider";
 
 const EditUser = () => {
-    const { id } = useParams();
-    const state = useLocation();
-    const user = state.state.user as User;
-    const { editUser } = useContext(UserContext);
+    const params = useParams();
+    const { id } = params as { id: string };
+    const { getUserById, editUser, state } = useContext(UserContext);
+    const { user } = state;
     const validationSchema = Yup.object().shape(
         {
             firstName: Yup.string().required("Zorunlu alan"),
@@ -19,10 +19,11 @@ const EditUser = () => {
 
     const formik = useFormik<User>({
         initialValues: {
-            firstName: user.firstName,
-            lastName: user.lastName,
-            age: user.age,
+            firstName: user ? user.firstName: "",
+            lastName: user ? user.lastName : "",
+            age: user ? user.age : 0,
         },
+        enableReinitialize: true,
         validationSchema,
         onSubmit: (values) => {
             editUser(id, values);
@@ -30,8 +31,12 @@ const EditUser = () => {
         },
     });
 
-    console.log("errors", formik.errors);
-    console.log("touched", formik.touched);
+    useEffect(() => {
+        getUserById(parseInt(id));
+    }, [id]);
+
+    console.log(user);
+    
 
     return (
         <section className="card mt-4 p-4">
@@ -39,7 +44,7 @@ const EditUser = () => {
             <form onSubmit={formik.handleSubmit}>
             <label>İsminiz</label>
             <input onChange={formik.handleChange}
-                value={formik.values.firstName} name="firstName" className="form-control" placeholder="İsminizi giriniz" />
+                defaultValue={formik.values.firstName} name="firstName" className="form-control" placeholder="İsminizi giriniz" />
             <label>Soyisim</label>
             <input onChange={formik.handleChange}
                 value={formik.values.lastName} name="lastName" className="form-control" placeholder="Soyisminizi giriniz" />

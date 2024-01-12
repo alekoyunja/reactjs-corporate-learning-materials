@@ -29,6 +29,17 @@ const getUsers = async () : Promise<UserResponse> => {
     return await response.json();
 };
 
+const getUser = async (id: number) : Promise<CreateUserResponse> => {
+    const response = await fetch(`https://dummyjson.com/users/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    return await response.json();
+};
+
 const createUser = async (user: any) : Promise<CreateUserResponse> => {
     const response = await fetch("https://dummyjson.com/users/add", {
         method: "POST",
@@ -68,5 +79,6 @@ export {
     getUsers,
     deleteUser,
     createUser,
-    updateUser
+    updateUser,
+    getUser
 };
