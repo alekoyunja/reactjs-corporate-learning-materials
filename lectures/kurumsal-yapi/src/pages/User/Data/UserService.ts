@@ -41,6 +41,18 @@ const createUser = async (user: any) : Promise<CreateUserResponse> => {
     return await response.json();
 };
 
+const updateUser = async (id: number, user: any) : Promise<CreateUserResponse> => {
+    const response = await fetch(`https://dummyjson.com/users/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    });
+
+    return await response.json();
+};
+
 const deleteUser = async (id: number) : Promise<DeleteResponse> => {
     const response = await fetch(`https://dummyjson.com/users/${id}`, {
         method: "DELETE",
@@ -55,5 +67,6 @@ const deleteUser = async (id: number) : Promise<DeleteResponse> => {
 export {
     getUsers,
     deleteUser,
-    createUser
+    createUser,
+    updateUser
 };

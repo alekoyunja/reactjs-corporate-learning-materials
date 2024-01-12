@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { getUsers, deleteUser, createUser } from "./UserService";
+import { getUsers, deleteUser, createUser, updateUser } from "./UserService";
 
 type User = {
     id?: number;
@@ -78,6 +78,24 @@ const userReducer = (state: UserState, action: any) => {
                 loading: false,
                 error: action.payload,
             };
+            case "UPDATE_BEGIN":
+                return {
+                    ...state,
+                    loading: true,
+                    error: null,
+                };
+            case "UPDATE_SUCCESS":
+                return {
+                    ...state,
+                    loading: false,
+                    error: null,
+                };
+            case "UPDATE_FAILED":
+                return {
+                    ...state,
+                    loading: false,
+                    error: action.payload,
+                };
         default:
             return state;
     }
@@ -118,6 +136,18 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
+    const editUser = async (id: number, user: User) => {
+        dispatch({ type: "UPDATE_BEGIN" });
+
+        try {
+            await updateUser(id, user);
+            dispatch({ type: "UPDATE_SUCCESS" });
+
+        } catch (error) {
+            dispatch({ type: "UPDATE_FAILED", payload: error.message });
+        }
+    };
+
     const removeUser = async (id: number) => {
         dispatch({ type: "DELETE_BEGIN" });
 
@@ -130,7 +160,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <UserContext.Provider
-            value={{ state, getAllUsers, removeUser, addUser }}
+            value={{ state, getAllUsers, removeUser, addUser, editUser }}
         >
             {children}
         </UserContext.Provider>

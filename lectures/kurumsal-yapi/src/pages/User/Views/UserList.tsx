@@ -7,7 +7,7 @@ type UserListProps = {
 };
 
 const UserList = ({ users }: UserListProps) => {
-    const { removeUser } = useContext(UserContext);
+    const { removeUser, editUser } = useContext(UserContext);
     const navigate = useNavigate ();
 
     return (
@@ -27,6 +27,15 @@ const UserList = ({ users }: UserListProps) => {
                             {users.map((user: User) => (
                                 <tr key={user.id}>
                                     <td>{user.firstName}</td>
+                                    <td className="text-end">
+                                        <button
+                                            className="btn btn-danger"
+                                            onClick={() => navigate("/" + user.id, { state: { user } })}
+                                            type="button"
+                                        >
+                                            Kullanıcı Düzenle
+                                        </button>
+                                    </td>
                                     <td className="text-end">
                                         <button
                                             className="btn btn-danger"

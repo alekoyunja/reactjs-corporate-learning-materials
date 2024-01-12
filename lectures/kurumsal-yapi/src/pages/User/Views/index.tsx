@@ -16,6 +16,7 @@ const User: React.FC = () => {
         <Routes>
             <Route index element={<UserList users={users} />} />
             <Route path="/kullanici-ekle" element={<CreateUser />} />
+            <Route path="/:id" element={<p>kullanici detay</p>} />
             <Route path="*" element={<p>404</p>} />
         </Routes>
     );
