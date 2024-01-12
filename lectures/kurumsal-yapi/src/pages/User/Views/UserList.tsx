@@ -7,7 +7,7 @@ type UserListProps = {
 };
 
 const UserList = ({ users }: UserListProps) => {
-    const { removeUser, editUser } = useContext(UserContext);
+    const { removeUser } = useContext(UserContext);
     const navigate = useNavigate ();
 
     return (

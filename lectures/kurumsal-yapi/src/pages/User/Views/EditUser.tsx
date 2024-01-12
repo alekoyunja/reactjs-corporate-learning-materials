@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { User, UserContext } from "../Data/UserProvider";
 
 const EditUser = () => {
     const { id } = useParams();
+    const state = useLocation();
+    const user = state.state.user as User;
     const { editUser } = useContext(UserContext);
     const validationSchema = Yup.object().shape(
         {
@@ -17,9 +19,9 @@ const EditUser = () => {
 
     const formik = useFormik<User>({
         initialValues: {
-            firstName: "",
-            lastName: "",
-            age: 18,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            age: user.age,
         },
         validationSchema,
         onSubmit: (values) => {
