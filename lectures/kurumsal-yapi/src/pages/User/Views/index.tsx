@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import UserList from "../Views/UserList";
+import CreateUser from "../Views/CreateUser";
 import { UserContext, User } from "../Data/UserProvider";
 
 const User: React.FC = () => {
@@ -14,7 +15,7 @@ const User: React.FC = () => {
     return (
         <Routes>
             <Route index element={<UserList users={users} />} />
-            <Route path="/add" element={<p>add</p>} />
+            <Route path="/kullanici-ekle" element={<CreateUser />} />
             <Route path="*" element={<p>404</p>} />
         </Routes>
     );

@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 import { getUsers, deleteUser } from "./UserService";
 
 type User = {
-    id: number;
+    id?: number;
     firstName: string;
     lastName: string;
     age: number;
