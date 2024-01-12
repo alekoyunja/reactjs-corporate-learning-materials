@@ -1,4 +1,4 @@
 import Login from "./Login/";
-import User from "./User/";
+import UserModule from "./User/";
 
-export { Login, User };
+export { Login, UserModule };

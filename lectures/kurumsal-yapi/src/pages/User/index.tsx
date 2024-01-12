@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const User = lazy(() => import("./Views"));
+const UserModule = lazy(() => import("./Views/UserRoutes"));
 
-export default User;
+export default UserModule;

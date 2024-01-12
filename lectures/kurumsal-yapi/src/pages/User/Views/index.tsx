@@ -1,26 +1,13 @@
-import React, { useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
-import UserList from "../Views/UserList";
-import CreateUser from "../Views/CreateUser";
-import EditUser from "../Views/EditUser";
-import { UserContext, User } from "../Data/UserProvider";
+import React from "react";
+import { UserProvider } from "../Data/UserProvider";
+import UserRoutes from "./UserRoutes";
 
-const User: React.FC = () => {
-    const { state, getAllUsers } = useContext(UserContext);
-    const { users } = state;
-
-    useEffect(() => {
-        getAllUsers();
-    }, []);
-
+const UserModule: React.FC = () => {
     return (
-        <Routes>
-            <Route index element={<UserList users={users} />} />
-            <Route path="/kullanici-ekle" element={<CreateUser />} />
-            <Route path="/:id" element={<EditUser />} />
-            <Route path="*" element={<p>404</p>} />
-        </Routes>
+        <UserProvider>
+            <UserRoutes />
+        </UserProvider>
     );
 };
 
-export default User;
+export default UserModule;

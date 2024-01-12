@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthenticaionContext } from "./pages/Login/Data/AuthenticaionProvider";
-import {Login, User} from "./pages/";
+import {Login, UserModule} from "./pages/";
 
 const Navigation = () => {
     const { state } = useContext(AuthenticaionContext);
@@ -9,7 +9,7 @@ const Navigation = () => {
 
     const AuthRoutes = () => {
         return (
-            <Route path="*" element={<User />} />
+            <Route path="*" element={<UserModule />} />
         );
     };
 
