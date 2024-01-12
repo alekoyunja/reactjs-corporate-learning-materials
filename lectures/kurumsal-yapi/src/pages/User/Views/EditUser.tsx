@@ -38,7 +38,7 @@ const EditUser = () => {
 
     return (
         <section className="card mt-4 p-4">
-            <h2>Kişi Ekle</h2>
+            <h2>Kişi Güncelle</h2>
             <form onSubmit={formik.handleSubmit}>
                 <label>İsminiz</label>
                 <input
@@ -66,7 +66,7 @@ const EditUser = () => {
                     placeholder="Yaşınızı giriniz"
                 />
                 <button type="submit" className="btn btn-success mt-4">
-                    kişi Oluştur
+                    Kişi Güncelleştir
                 </button>
             </form>
         </section>

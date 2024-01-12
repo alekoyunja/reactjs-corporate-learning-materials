@@ -29,7 +29,7 @@ const UserList = ({ users }: UserListProps) => {
                                     <td>{user.firstName}</td>
                                     <td className="text-end">
                                         <button
-                                            className="btn btn-danger"
+                                            className="btn btn-warning me"
                                             onClick={() => navigate("/" + user.id, { state: { user } })}
                                             type="button"
                                         >

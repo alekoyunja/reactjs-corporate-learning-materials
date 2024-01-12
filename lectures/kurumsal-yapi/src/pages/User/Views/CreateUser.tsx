@@ -42,7 +42,7 @@ const CreateUser = () => {
                 <label>Yaş</label>
             <input onChange={formik.handleChange}
                 value={formik.values.age} type="number" name="age" className="form-control" placeholder="Yaşınızı giriniz" />
-            <button type="submit" className="btn btn-success mt-4">kişi Oluştur</button>
+            <button type="submit" className="btn btn-success mt-4">Kişi Oluştur</button>
         </form>
         </section>
     );
